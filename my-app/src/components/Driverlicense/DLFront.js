@@ -4,7 +4,11 @@ import "./DLFront.css"
 export default class DLFront extends React.Component {
 
 
+
     render() {
+        const dateOfBirth2 = () => {
+            fields.dateOfBirth
+        }
         const { fields } = this.props;
         return(
             <div className="grid-container">
@@ -16,36 +20,93 @@ export default class DLFront extends React.Component {
                         <img alt="photo" src="https://vignette.wikia.nocookie.net/rickandmorty/images/a/a6/Rick_Sanchez.png/revision/latest?cb=20160923150728"></img>
                     </div>
                     <div className="sign">
-                        <p>
-                            <img alt="sign" src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Terry_Cavanagh_Signature.svg"></img>
-                        </p>
+                        <img alt="sign" src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Terry_Cavanagh_Signature.svg"></img>
                     </div>
                 </div>
                 <div className="right">
                     <div className="area-overlap r-header">
-                        <h1 >DRIVER LICENSE</h1>
+                        <h3>DRIVER LICENSE</h3>
                     </div>
                     <div className="r-mid">
-                        <span className="num">4d </span>
-                        <span>{fields.driverLicense}</span>
+
+                        <div classname="center">
+                            <div className="izq">
+                                <span className="num">4d </span>
+                                <span>{fields.driverLicense}</span>
+                                <br/>
+                                <span className="num"> 3 </span>
+                                <span className="bluefield">DOB</span>
+                                <span className="dob_content">{fields.dateOfBirth}</span>
+
+                            </div>
+                            <div className="der">
+                                <span className="num">4a </span>
+                                <span className="bluefield">ISS </span>
+                                <span> {fields.issue} </span>
+                                <br/>
+                                <span className="num">4b </span>
+                                <span className="bluefield">EXP </span>
+                                <span> {fields.expiration} </span>
+                            </div>
+                            <br/>
+
+                            <span className="num">1 </span>
+                            <span> {fields.lastName}</span>
+                            <br/>
+                            <span className="num">2 </span>
+                            <span>{fields.firstName+" "+fields.middleName}</span>
+                            <br/>
+                            <span className="num">8 </span>
+                            <span> {fields.street}</span>
+                            <br/>
+                            <span>{fields.city}</span><span className="space"></span>span><span>+fields.state+" "+fields.zip}</span>
+                        </div>
                         <br/>
-                        <span className="num"> 3 </span>
-                        <span className="bluefield">DOB</span>
-                        <span className="dob_content">{fields.dateOfBirth}</span>
-                        <br/>
-                        <span className="num">1 </span>
-                        <span> {fields.lastName}</span>
-                        <br/>
-                        <span className="num"></span>
-                        <span> <p>{fields.firstName}</p></span> info@castillo.cr
-                        <br/>
-                        <span className="num">8</span>
-                        <span> <p>{fields.street+" "+fields.city+" "+fields.state+" "+fields.zip}</p> </span>
                     </div>
                     <div className="r-bot">
-                        <div className="area-overlap text">
+                        <div className="bot-left">
+                            <span className="num">5 </span>
+                            <span className="bluefield">DD </span>
+                            <span> {fields.dd} </span>
+                            <br/>
+                            <span className="num">9 </span>
+                            <span className="bluefield">Class </span>
+                            <span> {fields.class} </span>
+                            <br/>
+                            <span className="num">15 </span>
+                            <span className="bluefield">SEX </span>
+                            <span> {fields.sex} </span>
+                            <br/>
+                            <span className="num">16 </span>
+                            <span className="bluefield">HGT </span>
+                            <span> {fields.height} </span>
+                            <br/>
+                            <span className="num">17 </span>
+                            <span className="bluefield">WGT </span>
+                            <span> {fields.weight} </span>
+                            <br/>
+                            <span className="num">18 </span>
+                            <span className="bluefield">EYES </span>
+                            <span> {fields.eyes} </span>
+                            <br/>
+                            <span className="num">19 </span>
+                            <span className="bluefield">HAIR </span>
+                            <span> {fields.hair} </span>
                         </div>
-                        <div className="r-photo">
+                        <div className="bot-center">
+                            <span className="num">9a </span>
+                            <span className="bluefield">END </span>
+                            <span> NONE </span>
+                            <br/>
+                            <span className="num">12 </span>
+                            <span className="bluefield">REST </span>
+                            <span> B </span>
+                            <br/>
+                            <span className="shortdob">{fields.dateOfBirth2 || fields.dateOfBirth} </span>
+
+                        </div>
+                        <div className="bot-right">
+                            <img alt="photo" src="https://vignette.wikia.nocookie.net/rickandmorty/images/a/a6/Rick_Sanchez.png/revision/latest?cb=20160923150728"></img>
                         </div>
                     </div>
                 </div>
