@@ -6,9 +6,6 @@ export default class DLFront extends React.Component {
 
 
     render() {
-        const dateOfBirth2 = () => {
-            fields.dateOfBirth
-        }
         const { fields } = this.props;
         return(
             <div className="grid-container">
@@ -17,15 +14,15 @@ export default class DLFront extends React.Component {
                         <h1>UTAH</h1>
                     </div>
                     <div className="l-photo">
-                        <img alt="photo" src="https://vignette.wikia.nocookie.net/rickandmorty/images/a/a6/Rick_Sanchez.png/revision/latest?cb=20160923150728"></img>
+                        <img alt="photo" src="https://vignette.wikia.nocookie.net/rickandmorty/images/a/a6/Rick_Sanchez.png/revision/latest?cb=20160923150728"/>
                     </div>
                     <div className="sign">
-                        <img alt="sign" src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Terry_Cavanagh_Signature.svg"></img>
+                        <img alt="sign" src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Terry_Cavanagh_Signature.svg"/>
                     </div>
                 </div>
                 <div className="right">
                     <div className="area-overlap r-header">
-                        <h3>DRIVER LICENSE</h3>
+                        <h1 >DRIVER LICENSE</h1>
                     </div>
                     <div className="r-mid">
 
@@ -48,7 +45,6 @@ export default class DLFront extends React.Component {
                                 <span className="bluefield">EXP </span>
                                 <span> {fields.expiration} </span>
                             </div>
-                            <br/>
 
                             <span className="num">1 </span>
                             <span> {fields.lastName}</span>
@@ -59,7 +55,11 @@ export default class DLFront extends React.Component {
                             <span className="num">8 </span>
                             <span> {fields.street}</span>
                             <br/>
-                            <span>{fields.city}</span><span className="space"></span>span><span>+fields.state+" "+fields.zip}</span>
+                            <span>{fields.city}</span>
+                            <span className="space"></span>
+                            <span>{fields.state}</span>
+                            <span className="space">,</span>
+                            <span>{fields.zip}</span>
                         </div>
                         <br/>
                     </div>
@@ -102,11 +102,11 @@ export default class DLFront extends React.Component {
                             <span className="bluefield">REST </span>
                             <span> B </span>
                             <br/>
-                            <span className="shortdob">{fields.dateOfBirth2 || fields.dateOfBirth} </span>
+                            <span className="shortdob">{fields.dateOfBirth} </span>
 
                         </div>
                         <div className="bot-right">
-                            <img alt="photo" src="https://vignette.wikia.nocookie.net/rickandmorty/images/a/a6/Rick_Sanchez.png/revision/latest?cb=20160923150728"></img>
+                            <img alt="photo" src="https://vignette.wikia.nocookie.net/rickandmorty/images/a/a6/Rick_Sanchez.png/revision/latest?cb=20160923150728"/>
                         </div>
                     </div>
                 </div>

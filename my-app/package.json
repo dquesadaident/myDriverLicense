@@ -15,7 +15,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prettier": "prettier --print-width 160 --tab-width 2 --jsx-bracket-same-line --trailing-comma none --write"
   },
   "devDependencies": {
     "prettier": "1.14.0"

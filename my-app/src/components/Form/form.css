@@ -1,0 +1,16 @@
+.row {
+    background-color: #222;
+    padding: 20px;
+    color: #fff;
+    flex: auto;
+}
+
+.col {
+    min-width: 300px;
+    width: 25%;
+    max-width: 100%;
+}
+
+.btnRow {
+    justify-content: center;
+}

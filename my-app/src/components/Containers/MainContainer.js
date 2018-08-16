@@ -30,9 +30,7 @@ class MainContainer extends Component {
                 </p>
                 {generateBarCode && <Barcode data={dl}/> }
                 <br/>
-                <p>---------------------------------</p>
                 <DLFront className="DriverLicense" fields={this.state.fields}/>
-                <p>---------------------------------</p>
             </div>
         );
 
