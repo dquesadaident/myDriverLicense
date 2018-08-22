@@ -50,15 +50,17 @@ export default class DLFront extends React.Component {
                             <span> {fields.lastName}</span>
                             <br/>
                             <span className="num">2 </span>
-                            <span>{fields.firstName+" "+fields.middleName}</span>
+                            <span>{fields.firstName}</span>
+                            <span className="space"> </span>
+                            <span>{fields.middleName}</span>
                             <br/>
                             <span className="num">8 </span>
                             <span> {fields.street}</span>
                             <br/>
                             <span>{fields.city}</span>
-                            <span className="space"></span>
-                            <span>{fields.state}</span>
                             <span className="space">,</span>
+                            <span>{fields.state}</span>
+                            <span className="space"> </span>
                             <span>{fields.zip}</span>
                         </div>
                         <br/>
@@ -67,11 +69,11 @@ export default class DLFront extends React.Component {
                         <div className="bot-left">
                             <span className="num">5 </span>
                             <span className="bluefield">DD </span>
-                            <span> {fields.dd} </span>
+                            <span className={"ddValue"}> {fields.dd} </span>
                             <br/>
                             <span className="num">9 </span>
                             <span className="bluefield">Class </span>
-                            <span> {fields.class} </span>
+                            <span> D </span>
                             <br/>
                             <span className="num">15 </span>
                             <span className="bluefield">SEX </span>

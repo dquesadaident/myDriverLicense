@@ -1,8 +1,9 @@
 import React from "react";
 import utahDriverLicenseConverter from "../../utils/dl.js";
 import "./form.css";
-
+import { generateStatic, generateRandom} from "../../utils/functions";
 export default class Form extends React.Component {
+
     state = {
         lastName: "",
         firstName: "",
@@ -13,7 +14,6 @@ export default class Form extends React.Component {
         state: "",
         zip: "",
         dateOfBirth: "",
-        sex: "",
         height: "",
         weight: "",
         issue: "",
@@ -23,74 +23,57 @@ export default class Form extends React.Component {
         dd: "",
         issuerIdentificationNumber: "",
         generateBarCode: false,
-        dl: ""
+        dl: "",
+        opt: 1
     };
 
     change = e => {
         this.props.onChange({[e.target.name]: e.target.value});
+
         this.setState({
             [e.target.name]: e.target.value
         });
     };
 
-
-    onSubmit = e => {
+    onSubmit = (e)=> {
         e.preventDefault();
-        console.log("DL> ", utahDriverLicenseConverter(this.state))
-        this.props.onChange({
-            generateBarCode: true,
-            dl: utahDriverLicenseConverter(this.state)
+        console.log(this.state.opt);
+        switch(this.state.opt){
 
-        });
+            case 1: {
+                console.log("option 1");
+                let dl = generateRandom(this.state)
+                this.props.onChange({
+                    generateBarCode: true,
+                    ...dl,
+                    dl: utahDriverLicenseConverter(dl)
 
-        {console.log("DL>>", this.state.dl)}
-
-        // this.props.onSubmit(this.state);
-        /* this.setState({
-             lastName: "",
-             firstName: "",
-             middleName: "",
-             driverLicense: "",
-             street: "",
-             city: "",
-             state: "",
-             zip: "",
-             dateOfBirth: "",
-             sex: "",
-             height: "",
-             weight: "",
-             issue: "",
-             expiration: "",
-             hair: "",
-             eyes: "",
-             dd: "",
-             issuerIdentificationNumber: "",
-             dl: "",
-             generateBarCode: true
-         });
-         this.props.onChange({
-             lastName: "",
-             firstName: "",
-             middleName: "",
-             driverLicense: "",
-             street: "",
-             city: "",
-             state: "",
-             zip: "",
-             dateOfBirth: "",
-             sex: "",
-             height: "",
-             weight: "",
-             issue: "",
-             expiration: "",
-             hair: "",
-             eyes: "",
-             dd: "",
-             dl: "",
-             issuerIdentificationNumber: "",
-             generateBarCode: true
-         });*/
-    };
+                });
+                {console.log("DL>>", this.state.dl)}
+                break;
+            }
+            case 2: {
+                console.log("option 2");
+                let dl = generateStatic(this.state)
+                this.props.onChange({
+                    generateBarCode: true,
+                    dl: utahDriverLicenseConverter(this.state)
+                });
+                //{console.log("DL>>", this.state.dl)}
+                break;
+            }
+            case 3: {
+                console.log("option 3");
+                this.props.onChange({
+                    generateBarCode: true,
+                    dl: utahDriverLicenseConverter(this.state)
+                });
+                //{console.log("DL>>", this.state.dl)}
+                break;
+            }
+            default: break;
+        }
+    }
 
     render() {
         const {
@@ -99,6 +82,15 @@ export default class Form extends React.Component {
         } = this.state;
         return (
             <div className="initialWrapper">
+                <div className="row">
+                    <div className="col">
+                        <select  onChange={e => this.change(e)} name="opt" className="optSelect">
+                            <option value={1}>Random</option>
+                            <option value={2}>Local</option>
+                            <option value={3}>Test</option>
+                        </select>
+                    </div>
+                </div>
                 <form>
                     <div className="row">
                         <div className="col">
@@ -142,9 +134,7 @@ export default class Form extends React.Component {
                                    onChange={e => this.change(e)}
                             />
                         </div>
-                    </div>
 
-                    <div className="row">
                         <div className="col">
                             <label>Driver License</label>
                             <input type="text"
@@ -167,33 +157,31 @@ export default class Form extends React.Component {
                         </div>
                         <div className="col">
                             <label>Date of Birth</label>
-                            <input type="date"
+                            <input type="text"
                                    className="form-control"
                                    name="dateOfBirth"
-                                   placeholder="(MM/DD/YYYY)"
+                                   placeholder="(MMDDYYYY)"
                                    value={dateOfBirth}
                                    onChange={e => this.change(e)}
                             />
                         </div>
                         <div className="col">
                             <label>Issue Date</label>
-                            <input type="date"
+                            <input type="text"
                                    className="form-control"
                                    name="issue"
-                                   placeholder="(MM/DD/YYYY)"
+                                   placeholder="(MMDDYYYY)"
                                    value={issue}
-                                   onChange={e => this.change(e)}
+                                   onChange={this.change}
                             />
                         </div>
-                    </div>
 
-                    <div className="row">
                         <div className="col">
                             <label>Expiration Date</label>
-                            <input type="date"
+                            <input type="text"
                                    className="form-control"
                                    name="expiration"
-                                   placeholder="(MM/DD/YYYY)"
+                                   placeholder="(MMDDYYYY)"
                                    value={expiration}
                                    onChange={e => this.change(e)}
                             />
@@ -227,9 +215,7 @@ export default class Form extends React.Component {
                                    onChange={e => this.change(e)}
                             />
                         </div>
-                    </div>
 
-                    <div className="row">
                         <div className="col">
                             <label>State</label>
                             <input type="text"
@@ -271,9 +257,7 @@ export default class Form extends React.Component {
                                    onChange={e => this.change(e)}
                             />
                         </div>
-                    </div>
 
-                    <div className="row">
                         <div className="col">
                             <label>Hair</label>
                             <input type="text"
@@ -296,7 +280,9 @@ export default class Form extends React.Component {
                         </div>
                     </div>
                     <div className="row btnRow">
+                        <div className="col">
                             <button className="btn btn-light" onClick={e => this.onSubmit(e)}>Generate</button>
+                        </div>
                     </div>
                 </form>
 

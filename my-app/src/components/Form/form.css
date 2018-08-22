@@ -1,5 +1,4 @@
 .row {
-    background-color: #222;
     padding: 20px;
     color: #fff;
     flex: auto;
@@ -13,4 +12,8 @@
 
 .btnRow {
     justify-content: center;
+}
+
+.initialWrapper {
+    background-color: #005587;
 }
