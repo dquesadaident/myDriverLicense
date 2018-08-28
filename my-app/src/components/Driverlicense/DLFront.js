@@ -7,14 +7,15 @@ export default class DLFront extends React.Component {
 
     render() {
         const { fields } = this.props;
+
         return(
             <div className="grid-container">
                 <div className="left">
                     <div className="area-overlap header">
-                        <h1>UTAH</h1>
+                        <h1>{fields.state}</h1>
                     </div>
                     <div className="l-photo">
-                        <img alt="photo" src="https://vignette.wikia.nocookie.net/rickandmorty/images/a/a6/Rick_Sanchez.png/revision/latest?cb=20160923150728"/>
+                        <img alt="photo" src={fields.srcPhoto}/>
                     </div>
                     <div className="sign">
                         <img alt="sign" src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Terry_Cavanagh_Signature.svg"/>
@@ -26,7 +27,7 @@ export default class DLFront extends React.Component {
                     </div>
                     <div className="r-mid">
 
-                        <div classname="center">
+                        <div className="center">
                             <div className="izq">
                                 <span className="num">4d </span>
                                 <span>{fields.driverLicense}</span>
@@ -59,7 +60,7 @@ export default class DLFront extends React.Component {
                             <br/>
                             <span>{fields.city}</span>
                             <span className="space">,</span>
-                            <span>{fields.state}</span>
+                            <span>{fields.alpha2}</span>
                             <span className="space"> </span>
                             <span>{fields.zip}</span>
                         </div>
@@ -108,7 +109,7 @@ export default class DLFront extends React.Component {
 
                         </div>
                         <div className="bot-right">
-                            <img alt="photo" src="https://vignette.wikia.nocookie.net/rickandmorty/images/a/a6/Rick_Sanchez.png/revision/latest?cb=20160923150728"/>
+                            <img alt="photo" src={fields.srcPhoto}/>
                         </div>
                     </div>
                 </div>

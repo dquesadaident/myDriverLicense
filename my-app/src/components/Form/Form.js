@@ -1,7 +1,8 @@
 import React from "react";
 import utahDriverLicenseConverter from "../../utils/dl.js";
 import "./form.css";
-import { generateStatic, generateRandom} from "../../utils/functions";
+import {generateRandom, generateStatic} from "../../utils/functions";
+
 export default class Form extends React.Component {
 
     state = {
@@ -24,7 +25,8 @@ export default class Form extends React.Component {
         issuerIdentificationNumber: "",
         generateBarCode: false,
         dl: "",
-        opt: 1
+        opt: 1,
+        alpha2: ""
     };
 
     change = e => {
@@ -38,28 +40,28 @@ export default class Form extends React.Component {
     onSubmit = (e)=> {
         e.preventDefault();
         console.log(this.state.opt);
+        console.log('on subnmit call');
         switch(this.state.opt){
 
             case 1: {
-                console.log("option 1");
-                let dl = generateRandom(this.state)
+                let dl = generateRandom(this.state);
                 this.props.onChange({
                     generateBarCode: true,
                     ...dl,
                     dl: utahDriverLicenseConverter(dl)
 
                 });
-                {console.log("DL>>", this.state.dl)}
+                console.log("DL in opt 1>>", this.state.dl);
                 break;
             }
             case 2: {
-                console.log("option 2");
-                let dl = generateStatic(this.state)
+                let dl = generateStatic(this.state);
                 this.props.onChange({
                     generateBarCode: true,
+                    ...dl,
                     dl: utahDriverLicenseConverter(this.state)
                 });
-                //{console.log("DL>>", this.state.dl)}
+                console.log("DL in opt 2>>", this.state.dl);
                 break;
             }
             case 3: {
@@ -68,12 +70,12 @@ export default class Form extends React.Component {
                     generateBarCode: true,
                     dl: utahDriverLicenseConverter(this.state)
                 });
-                //{console.log("DL>>", this.state.dl)}
+                console.log("DL in opt3>>", this.state.dl);
                 break;
             }
             default: break;
         }
-    }
+    };
 
     render() {
         const {
@@ -281,7 +283,7 @@ export default class Form extends React.Component {
                     </div>
                     <div className="row btnRow">
                         <div className="col">
-                            <button className="btn btn-light" onClick={e => this.onSubmit(e)}>Generate</button>
+                            <button className="btn btn-light" onClick={this.onSubmit}>Generate</button>
                         </div>
                     </div>
                 </form>

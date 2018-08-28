@@ -19,18 +19,28 @@ class MainContainer extends Component {
         });
     };
 
+    printLicense = (fields) => {
+        return (
+            <div className="row">
+                <div className="col">
+                    <DLFront className="DriverLicense" fields={fields}/>
+                </div>
+                <div className="col">
+                    <Barcode data={fields.dl}/>
+                </div>
+            </div>
+        );
+    };
+
     render() {
-        const {generateBarCode, dl} = this.state.fields;
+        const {generateBarCode} = this.state.fields;
         return(
             <div className="App">
                 <Header/>
                 <Form onChange={fields => this.onChange(fields)}/>
-                <p>
-                    {JSON.stringify(this.state.fields, null, 2)}
-                </p>
-                {generateBarCode && <Barcode data={dl}/> }
-                <br/>
-                <DLFront className="DriverLicense" fields={this.state.fields}/>
+                {
+                    generateBarCode ? this.printLicense(this.state.fields) : null
+                }
             </div>
         );
 

@@ -1,22 +1,21 @@
 .grid-container {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-gap: 1px 1px;
-    grid-template-areas: "left right right right" "left right right right" "left right right right";
     border: 1px solid #000;
     border-radius: 20px;
-    width: 610px;
-    height: 420px;
+    width: 590px;
+    height: 385px;
     margin: 30px;
     display: flex;
     flex-wrap: wrap;
     padding: auto;
     overflow: hidden;
     text-align: left;
+    background-color: rgba(0,0,0,.05);
+    color: #222222;
 }
 
 .left {
-    margin-left: 5px;
+    margin: 5px;
+    width: 180px;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -30,14 +29,19 @@
     grid-area: photo;
     object-fit: cover;
     margin-top: 0;
+    width: 170px;
+}
+
+.l-photo img{
+    width: 100%;
 }
 
 .sign {
-    grid-area: sign;
+    width: 170px;
 }
 
 .sign img {
-    height: 40px;
+    width: 100%;
 }
 
 .right {
@@ -84,14 +88,16 @@
     width: 30%;
 }
 .bot-right {
-    margin-top: -55px;
     width: 30%;
 }
 .bot-right img{
-    transform: scale(0.5        , 0.5);
     filter:  grayscale(1);
+    height: 100px;
+    width: 75px;
+    object-fit: cover;
     opacity: 0.5;
-
+    margin-top: 65px;
+    margin-left: 55px;
 }
 
 .num    {
@@ -113,7 +119,7 @@ h1 {
     font-size: 30px;
     margin: 0 auto;
     overflow: visible;
-    max-width: 175px;
+    max-width: 300px;
 }
 
 h3 {

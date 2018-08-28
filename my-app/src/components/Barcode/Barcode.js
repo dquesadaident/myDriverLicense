@@ -3,8 +3,10 @@ import generateBarcode from "pdf417";
 
 export default function Barcode(data) {
     return (
-        <div>
-            <img alt={"barcode"} src={generateBarcode(data.data, 3, 3)}/>
+        <div className="grid-container">
+            <div className="barCodeContainer">
+                <img className="barcode" alt={"barcode"} src={generateBarcode(data.data, 2, 2)}/>
+            </div>
         </div>
 
     )

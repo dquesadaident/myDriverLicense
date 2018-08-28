@@ -1,0 +1,14 @@
+.barCodeContainer {
+    justify-content: center;
+    vertical-align: middle;
+    display: inline-block;
+    overflow: hidden;
+    position: absolute;
+}
+.barCodeContainer img {
+    justify-content: center;
+    vertical-align: middle;
+    display: inline-block;
+    overflow: hidden;
+    position: absolute;
+}

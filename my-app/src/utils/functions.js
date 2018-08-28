@@ -1,8 +1,62 @@
-import React, {Component} from "react";
 
-const states = [
+/*const states = [
     "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "District of Columbia", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"];
-const femaleNames = ["Belen",
+*/
+const states = [
+    {"name":"Alabama","alpha-2":"AL"},
+    {"name":"Alaska","alpha-2":"AK"},
+    {"name":"Arizona","alpha-2":"AZ"},
+    {"name":"Arkansas","alpha-2":"AR"},
+    {"name":"California","alpha-2":"CA"},
+    {"name":"Colorado","alpha-2":"CO"},
+    {"name":"Connecticut","alpha-2":"CT"},
+    {"name":"Delaware","alpha-2":"DE"},
+    {"name":"District of Columbia","alpha-2":"DC"},
+    {"name":"Florida","alpha-2":"FL"},
+    {"name":"Georgia","alpha-2":"GA"},
+    {"name":"Hawaii","alpha-2":"HI"},
+    {"name":"Idaho","alpha-2":"ID"},
+    {"name":"Illinois","alpha-2":"IL"},
+    {"name":"Indiana","alpha-2":"IN"},
+    {"name":"Iowa","alpha-2":"IA"},
+    {"name":"Kansa","alpha-2":"KS"},
+    {"name":"Kentucky","alpha-2":"KY"},
+    {"name":"Lousiana","alpha-2":"LA"},
+    {"name":"Maine","alpha-2":"ME"},
+    {"name":"Maryland","alpha-2":"MD"},
+    {"name":"Massachusetts","alpha-2":"MA"},
+    {"name":"Michigan","alpha-2":"MI"},
+    {"name":"Minnesota","alpha-2":"MN"},
+    {"name":"Mississippi","alpha-2":"MS"},
+    {"name":"Missouri","alpha-2":"MO"},
+    {"name":"Montana","alpha-2":"MT"},
+    {"name":"Nebraska","alpha-2":"NE"},
+    {"name":"Nevada","alpha-2":"NV"},
+    {"name":"New Hampshire","alpha-2":"NH"},
+    {"name":"New Jersey","alpha-2":"NJ"},
+    {"name":"New Mexico","alpha-2":"NM"},
+    {"name":"New York","alpha-2":"NY"},
+    {"name":"North Carolina","alpha-2":"NC"},
+    {"name":"North Dakota","alpha-2":"ND"},
+    {"name":"Ohio","alpha-2":"OH"},
+    {"name":"Oklahoma","alpha-2":"OK"},
+    {"name":"Oregon","alpha-2":"OR"},
+    {"name":"Pennsylvania","alpha-2":"PA"},
+    {"name":"Rhode Island","alpha-2":"RI"},
+    {"name":"South Carolina","alpha-2":"SC"},
+    {"name":"South Dakota","alpha-2":"SD"},
+    {"name":"Tennessee","alpha-2":"TN"},
+    {"name":"Texas","alpha-2":"TX"},
+    {"name":"Utah","alpha-2":"UT"},
+    {"name":"Vermont","alpha-2":"VT"},
+    {"name":"Virginia","alpha-2":"VA"},
+    {"name":"Washington","alpha-2":"WA"},
+    {"name":"West Virginia","alpha-2":"WV"},
+    {"name":"Wisconsin","alpha-2":"WI"},
+    {"name":"Wyoming","alpha-2":"WY"}
+];
+const femaleNames = [
+    "Belen",
     "Caron",
     "Kandice",
     "Jennette",
@@ -344,11 +398,12 @@ const streets = [
 const colors = [
     "BLK","GRN","BRN","BLU","RED","VIO", "ORG", "GRY", "YEL", "WHT"];
 
-function getRandomNumber(ini, fin) {
-    return Math.floor(Math.random() * fin) + ini;
+function getRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
 }
 export function generateStatic(){
-    var dl = { issuerIdentificationNumber: "636040",
+    return{
+        issuerIdentificationNumber: "636040",
         lastName : "Lothbrok",
         firstName: "Ragnar",
         middleName: "King",
@@ -365,49 +420,91 @@ export function generateStatic(){
         expiration: "06082021",
         hair: "BRO",
         eyes: "BRO",
-        dd: "987654321" }
-
-    return dl;
-
+        dd: "987654321"
+    }
 }
 
 export function generateRandom(){
     let sex =getRandomSex();
-    let hei = getRandomNumber(48,78)
-    var dl = {
+    let hei = getRandomNumber(60,70);
+    let state = getRandomState(states);
+    var myDate = generateDates();
+    var dob = generateDoB(myDate);
+    console.log("dob:", dob);
+    return {
         issuerIdentificationNumber: getRandomNumber(10000,99999),
         lastName : getRandomLastName(),
-        firstName: sex == "M" ? getRandomFromArray(maleNames) : getRandomFromArray(femaleNames),
-        middleName: sex == "M" ? getRandomFromArray(maleNames) : getRandomFromArray(femaleNames),
+        firstName: sex === "M" ? getRandomFromArray(maleNames) : getRandomFromArray(femaleNames),
+        middleName: sex === "M" ? getRandomFromArray(maleNames) : getRandomFromArray(femaleNames),
         driverLicense: "TEST"+getRandomNumber(1000000,9999999),
         street: getRandomFromArray(streets),
         city: getRandomFromArray(cities),
-        state: getRandomFromArray(states),
+        state: getRandomStateName(state),
         zip: getRandomNumber(10000,99999),
-        dateOfBirth: getRandomDate(new Date(2012, 0, 1), new Date()),
+        dateOfBirth: dob,
         sex: sex,
         height: getRandomHeight(hei),
         weight: getRandomNumber(110,350),
-        issue: getRandomDate(new Date(2012, 0, 1), new Date()),
-        expiration: getRandomDate(new Date(2012, 0, 1), new Date(2035, 0, 1)),
+        issue: generateIssueDate(dob),
+        expiration: getRandomExpirationDate(),
         hair: getRandomFromArray(colors),
         eyes: getRandomFromArray(colors),
-        dd: getRandomNumber(100000000,999999999)
+        dd: getRandomNumber(100000000,999999999),
+        alpha2: getRandomStateAlpha2(state),
+        srcPhoto: sex === "M" ? generateManPhoto() : generateWomanPhoto()
     }
-
-    return dl;
 }
 
 function getRandomFromArray(array) {
     return array[getRandomNumber(0,array.length)];
 }
 
-function getRandomDate(start, end) {
-    var date = new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
-    return date.getMonth()+date.getDay()+date.getUTCFullYear();
+// DATES !
+function generateDates() {
+    return getRandomNumber(1,13).toString().padStart(2,"0") + getRandomNumber(1,28).toString().padStart(2,"0");
 }
 
+//----------- DOB
+function generateDoB(myDate) {
+    let year = new Date().getFullYear();
+    return myDate + (year - getRandomNumber(21,70));
+}
 
+export function getDateSlashed(date){
+    return date.slice(0,2) + "/" + date.slice(2,4) +"/" + date.slice(4,8);
+    }
+//----------- ISSUE
+function generateIssueDate(dateDoB) {
+    let year = new Date().getFullYear();
+    let yearDoB = Number(dateDoB.slice(4,8));
+    return generateDates() + getRandomNumber(yearDoB,year);
+}
+
+//----------- EXPIRATION
+function getRandomExpirationDate() {
+    let year = new Date().getFullYear();
+    return generateDates() + (year + getRandomNumber(-1,4))
+}
+
+//----------- smaller
+export function generateSmallDate(date){
+    return date.slice(0,2) + "/" + date.slice(2,4) +"/" + date.slice(6,8);
+}
+
+//---------- STATES
+function getRandomState(states) {
+
+    return getRandomFromArray(states);
+}
+
+function getRandomStateAlpha2(object) {
+    return object['alpha-2'];
+}
+
+function getRandomStateName(object) {
+    return object['name'];
+}
+//----------
 function getRandomLastName() {
     console.log("ARRAY LN >",lastNamesPrefix);
 
@@ -416,7 +513,7 @@ function getRandomLastName() {
 }
 
 function getRandomSex () {
-    return getRandomNumber(1,2) == 1 ? "M" : "F";
+    return getRandomNumber(1,2) === 1 ? "M" : "F";
 }
 
 function getRandomHeight(inches) {
@@ -425,4 +522,12 @@ function getRandomHeight(inches) {
         return "";
     }
     return Math.floor(Number(inches)/12) + "'-" + String(Number(inches) % 12).padStart(2, "0")+ '"';
+}
+
+export function generateWomanPhoto() {
+    return "https://randomuser.me/api/portraits/women/" + getRandomNumber(0,99) + ".jpg";
+}
+
+export function generateManPhoto() {
+    return "https://randomuser.me/api/portraits/men/" + getRandomNumber(0,99) + ".jpg";
 }
