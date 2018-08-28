@@ -1,5 +1,6 @@
 import React from "react";
 import "./DLFront.css"
+import {generateSmallDate, getDateSlashed} from "../../utils/functions";
 
 export default class DLFront extends React.Component {
 
@@ -30,30 +31,30 @@ export default class DLFront extends React.Component {
                         <div className="center">
                             <div className="izq">
                                 <span className="num">4d </span>
-                                <span>{fields.driverLicense}</span>
+                                <span className="driverlicense">{fields.driverLicense}</span>
                                 <br/>
                                 <span className="num"> 3 </span>
                                 <span className="bluefield">DOB</span>
-                                <span className="dob_content">{fields.dateOfBirth}</span>
+                                <span className="dob_content">{getDateSlashed(fields.dateOfBirth)}</span>
 
                             </div>
                             <div className="der">
                                 <span className="num">4a </span>
                                 <span className="bluefield">ISS </span>
-                                <span> {fields.issue} </span>
+                                <span> {getDateSlashed(fields.issue)} </span>
                                 <br/>
                                 <span className="num">4b </span>
                                 <span className="bluefield">EXP </span>
-                                <span> {fields.expiration} </span>
+                                <span> {getDateSlashed(fields.expiration)} </span>
                             </div>
 
                             <span className="num">1 </span>
-                            <span> {fields.lastName}</span>
+                            <span className='lastName'> {fields.lastName}</span>
                             <br/>
                             <span className="num">2 </span>
-                            <span>{fields.firstName}</span>
+                            <span className="firstName">{fields.firstName}</span>
                             <span className="space"> </span>
-                            <span>{fields.middleName}</span>
+                            <span className="middleName">{fields.middleName}</span>
                             <br/>
                             <span className="num">8 </span>
                             <span> {fields.street}</span>
@@ -86,7 +87,7 @@ export default class DLFront extends React.Component {
                             <br/>
                             <span className="num">17 </span>
                             <span className="bluefield">WGT </span>
-                            <span> {fields.weight} </span>
+                            <span> {fields.weight + " lb"} </span>
                             <br/>
                             <span className="num">18 </span>
                             <span className="bluefield">EYES </span>
@@ -105,7 +106,7 @@ export default class DLFront extends React.Component {
                             <span className="bluefield">REST </span>
                             <span> B </span>
                             <br/>
-                            <span className="shortdob">{fields.dateOfBirth} </span>
+                            <span className="shortdob">{ generateSmallDate(fields.dateOfBirth)} </span>
 
                         </div>
                         <div className="bot-right">

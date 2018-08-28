@@ -96,7 +96,6 @@
     width: 75px;
     object-fit: cover;
     opacity: 0.5;
-    margin-top: 65px;
     margin-left: 55px;
 }
 
@@ -131,7 +130,6 @@ h3 {
 .shortdob {
     font-size: 25px;
     height: 50%;
-    margin-top: 40%;
 }
 
 .space {
@@ -140,4 +138,30 @@ h3 {
 
 .ddValue {
     font-size: 12px;
+}
+
+.dob_content {
+    color: red;
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.driverlicense{
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.firstName {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.lastName {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.middleName {
+    font-size: 22px;
+    font-weight: 700;
 }
