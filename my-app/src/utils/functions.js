@@ -401,8 +401,9 @@ const colors = [
 function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
+
 export function generateStatic(){
-    return{
+    return {
         issuerIdentificationNumber: "636040",
         lastName : "Lothbrok",
         firstName: "Ragnar",
@@ -420,22 +421,22 @@ export function generateStatic(){
         expiration: "06082021",
         hair: "BRO",
         eyes: "BRO",
-        dd: "987654321"
+        dd: "987654321",
+        srcPhoto: "https://randomuser.me/api/portraits/men/0.jpg"
+
     }
 }
 
 export function generateRandom(){
-    let sex =getRandomSex();
-    let hei = getRandomNumber(60,70);
-    let state = getRandomState(states);
-    var myDate = generateDates();
-    var dob = generateDoB(myDate);
-    console.log("dob:", dob);
+    const sex =getRandomSex();
+    const state = getRandomState(states);
+    const myDate = generateDates();
+    const dob = generateDoB(myDate);
     return {
         issuerIdentificationNumber: getRandomNumber(10000,99999),
         lastName : getRandomLastName(),
-        firstName: sex === "M" ? getRandomFromArray(maleNames) : getRandomFromArray(femaleNames),
-        middleName: sex === "M" ? getRandomFromArray(maleNames) : getRandomFromArray(femaleNames),
+        firstName: sex === "1" ? getRandomFromArray(maleNames) : getRandomFromArray(femaleNames),
+        middleName: sex === "1" ? getRandomFromArray(maleNames) : getRandomFromArray(femaleNames),
         driverLicense: "TEST"+getRandomNumber(1000000,9999999),
         street: getRandomFromArray(streets),
         city: getRandomFromArray(cities),
@@ -443,7 +444,7 @@ export function generateRandom(){
         zip: getRandomNumber(10000,99999),
         dateOfBirth: dob,
         sex: sex,
-        height: getRandomHeight(hei),
+        height: getRandomNumber(60,70),
         weight: getRandomNumber(110,350),
         issue: generateIssueDate(dob),
         expiration: getRandomExpirationDate(),
@@ -451,7 +452,7 @@ export function generateRandom(){
         eyes: getRandomFromArray(colors),
         dd: getRandomNumber(100000000,999999999),
         alpha2: getRandomStateAlpha2(state),
-        srcPhoto: sex === "M" ? generateManPhoto() : generateWomanPhoto()
+        srcPhoto: sex === "1" ? generateManPhoto() : generateWomanPhoto()
     }
 }
 
@@ -472,7 +473,7 @@ function generateDoB(myDate) {
 
 export function getDateSlashed(date){
     return date.slice(0,2) + "/" + date.slice(2,4) +"/" + date.slice(4,8);
-    }
+}
 //----------- ISSUE
 function generateIssueDate(dateDoB) {
     let year = new Date().getFullYear();
@@ -506,18 +507,15 @@ function getRandomStateName(object) {
 }
 //----------
 function getRandomLastName() {
-    console.log("ARRAY LN >",lastNamesPrefix);
 
-    console.log("RANDOM DE ARRAY LN >",getRandomFromArray(lastNamesPrefix).value);
     return getRandomFromArray(lastNamesPrefix)+getRandomFromArray(lastNameSuffix);
 }
 
 function getRandomSex () {
-    return getRandomNumber(1,2) === 1 ? "M" : "F";
+    return getRandomNumber(1,2);
 }
 
-function getRandomHeight(inches) {
-    console.log("inches> ",inches);
+export function getRandomHeight(inches) {
     if(!inches){
         return "";
     }

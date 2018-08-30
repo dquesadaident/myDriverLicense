@@ -5,7 +5,7 @@ import {generateRandom, generateStatic} from "../../utils/functions";
 
 export default class Form extends React.Component {
 
-    state = {
+    initialState = {
         lastName: "",
         firstName: "",
         middleName: "",
@@ -23,61 +23,77 @@ export default class Form extends React.Component {
         eyes: "",
         dd: "",
         issuerIdentificationNumber: "",
-        generateBarCode: false,
         dl: "",
-        opt: 1,
+        opt: "1",
         alpha2: ""
     };
 
+    constructor(props) {
+        super(props);
+        this.state = this.initialState;
+    }
+
     change = e => {
-        this.props.onChange({[e.target.name]: e.target.value});
 
         this.setState({
             [e.target.name]: e.target.value
-        });
+        },
+            () => {
+                this.props.onChange(
+                    {
+                        generateBarCode: true,
+                        ...this.state,
+                        dl: utahDriverLicenseConverter(this.state)
+                    }
+                )
+            });
     };
 
     onSubmit = (e)=> {
+        let incomingDL;
         e.preventDefault();
-        console.log(this.state.opt);
-        console.log('on subnmit call');
+        console.log("OPT value", this.state.opt);
         switch(this.state.opt){
-
-            case 1: {
-                let dl = generateRandom(this.state);
+            case "1":
+                incomingDL = generateRandom();
+                this.setState(incomingDL);
                 this.props.onChange({
                     generateBarCode: true,
-                    ...dl,
-                    dl: utahDriverLicenseConverter(dl)
+                    ...incomingDL,
+                    dl: utahDriverLicenseConverter(incomingDL)
 
                 });
                 console.log("DL in opt 1>>", this.state.dl);
                 break;
-            }
-            case 2: {
-                let dl = generateStatic(this.state);
+
+            case "2":
+                incomingDL = generateStatic();
+                this.setState(incomingDL);
+                console.log("the DL?", incomingDL);
                 this.props.onChange({
                     generateBarCode: true,
-                    ...dl,
+                    ...incomingDL,
                     dl: utahDriverLicenseConverter(this.state)
                 });
                 console.log("DL in opt 2>>", this.state.dl);
                 break;
-            }
-            case 3: {
-                console.log("option 3");
-                this.props.onChange({
-                    generateBarCode: true,
-                    dl: utahDriverLicenseConverter(this.state)
-                });
+
+            case "3":
+                this.setState(this.initialState);
+
+                    this.props.onChange({
+                        generateBarCode: false,
+                        dl: {}
+                    });
                 console.log("DL in opt3>>", this.state.dl);
                 break;
-            }
+
             default: break;
         }
     };
 
     render() {
+
         const {
             issuerIdentificationNumber, lastName, firstName, middleName, driverLicense, street, city, state, zip, dateOfBirth,
             sex, height, weight, issue, expiration, hair, eyes, dd
@@ -87,9 +103,9 @@ export default class Form extends React.Component {
                 <div className="row">
                     <div className="col">
                         <select  onChange={e => this.change(e)} name="opt" className="optSelect">
-                            <option value={1}>Random</option>
-                            <option value={2}>Local</option>
-                            <option value={3}>Test</option>
+                            <option value={"1"}>Random person</option>
+                            <option value={"2"}>Ragnar Lothbrok</option>
+                            <option value={"3"}>Manual input</option>
                         </select>
                     </div>
                 </div>

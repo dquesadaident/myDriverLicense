@@ -11,6 +11,7 @@ class MainContainer extends Component {
     };
 
     onChange = updatedValue => {
+        console.log("updated value", updatedValue);
         this.setState({
             fields: {
                 ...this.state.fields,

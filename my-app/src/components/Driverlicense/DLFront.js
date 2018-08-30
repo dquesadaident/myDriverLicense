@@ -1,6 +1,6 @@
 import React from "react";
 import "./DLFront.css"
-import {generateSmallDate, getDateSlashed} from "../../utils/functions";
+import {generateSmallDate, getDateSlashed, getRandomHeight} from "../../utils/functions";
 
 export default class DLFront extends React.Component {
 
@@ -79,11 +79,11 @@ export default class DLFront extends React.Component {
                             <br/>
                             <span className="num">15 </span>
                             <span className="bluefield">SEX </span>
-                            <span> {fields.sex} </span>
+                            <span> {fields.sex === "1" ? "M" : "F"} </span>
                             <br/>
                             <span className="num">16 </span>
                             <span className="bluefield">HGT </span>
-                            <span> {fields.height} </span>
+                            <span> {getRandomHeight(fields.height)} </span>
                             <br/>
                             <span className="num">17 </span>
                             <span className="bluefield">WGT </span>
