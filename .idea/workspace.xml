@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="04b911c2-ec42-4526-ae99-7ecc8f357236" name="Default" comment="outstanding updates, the form is refreshed and rendering the values using the callback in the constructor&#10;the driver license is rendering in real time.&#10;code is cleaner.">
+    <list default="true" id="04b911c2-ec42-4526-ae99-7ecc8f357236" name="Default" comment="style updates">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/components/Barcode/Barcode.css" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/components/Barcode/Barcode.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/components/Barcode/Barcode.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/components/Barcode/Barcode.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my-app/src/components/Form/Form.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/components/Form/Form.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/components/Form/form.css" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/components/Form/form.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/utils/functions.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/utils/functions.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,12 +35,13 @@
           <entry key="css" value="28" />
           <entry key="html" value="4" />
           <entry key="ico" value="3" />
-          <entry key="js" value="42" />
+          <entry key="js" value="44" />
           <entry key="json" value="1" />
           <entry key="md" value="1" />
           <entry key="png" value="3" />
           <entry key="rnc" value="1" />
           <entry key="svg" value="1" />
+          <entry key="ts" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -51,19 +50,20 @@
           <entry key="HTML" value="4" />
           <entry key="Image" value="6" />
           <entry key="JSON" value="1" />
-          <entry key="JavaScript" value="42" />
+          <entry key="JavaScript" value="44" />
           <entry key="Markdown" value="1" />
           <entry key="RNG Compact" value="1" />
           <entry key="SVG" value="1" />
+          <entry key="TypeScript" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="1918" />
           <entry key="html" value="18" />
-          <entry key="js" value="11775" />
+          <entry key="js" value="12717" />
           <entry key="json" value="8" />
-          <entry key="txt" value="846" />
+          <entry key="txt" value="859" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -71,8 +71,8 @@
           <entry key="CSS" value="1918" />
           <entry key="HTML" value="21" />
           <entry key="JSON" value="8" />
-          <entry key="JavaScript" value="11772" />
-          <entry key="PLAIN_TEXT" value="846" />
+          <entry key="JavaScript" value="12714" />
+          <entry key="PLAIN_TEXT" value="859" />
         </counts>
       </usages-collector>
     </session>
@@ -82,8 +82,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/my-app/src/components/Containers/MainContainer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="38" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
+            <state relative-caret-position="210">
+              <caret line="18" column="13" lean-forward="true" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -92,7 +92,7 @@
         <entry file="file://$PROJECT_DIR$/my-app/src/components/Barcode/Barcode.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="30">
-              <caret line="2" column="10" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
+              <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -100,8 +100,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/my-app/src/components/Form/Form.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1035">
-              <caret line="69" column="46" lean-forward="true" selection-start-line="69" selection-start-column="46" selection-end-line="69" selection-end-column="46" />
+            <state relative-caret-position="467">
+              <caret line="95" column="61" selection-start-line="95" selection-start-column="61" selection-end-line="95" selection-end-column="61" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -140,10 +140,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/my-app/src/utils/dl.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="69" selection-start-line="4" selection-start-column="67" selection-end-line="4" selection-end-column="69" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/my-app/src/components/Driverlicense/DLFront.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="377">
+              <caret line="63" column="48" selection-start-line="63" selection-start-column="42" selection-end-line="63" selection-end-column="48" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -154,8 +163,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/my-app/src/utils/functions.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="548">
-              <caret line="531" lean-forward="true" selection-start-line="531" selection-end-line="531" />
+            <state relative-caret-position="218">
+              <caret line="405" column="12" lean-forward="true" selection-start-line="405" selection-start-column="12" selection-end-line="405" selection-end-column="12" />
               <folding>
                 <element signature="e#689#2763#0" />
                 <element signature="e#2785#3495#0" />
@@ -166,15 +175,6 @@
                 <element signature="e#8757#11276#0" />
                 <element signature="e#11293#11363#0" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/my-app/src/components/Driverlicense/DLFront.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-93">
-              <caret line="98" selection-start-line="98" selection-end-line="98" />
             </state>
           </provider>
         </entry>
@@ -200,8 +200,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>State</find>
-      <find>&lt;br /&gt;</find>
       <find>import Form</find>
       <find>updatedValue</find>
       <find>change</find>
@@ -223,10 +221,15 @@
       <find>wei</find>
       <find>hei</find>
       <find>small</find>
-      <find>sex</find>
       <find>conso</find>
       <find>debugger</find>
       <find>dl</find>
+      <find>sex</find>
+      <find>the DL?</find>
+      <find>state</find>
+      <find>update</find>
+      <find>btnText</find>
+      <find>initialState</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -270,12 +273,12 @@
         <option value="$PROJECT_DIR$/my-app/src/components/Driverlicense/DLBack.js" />
         <option value="$PROJECT_DIR$/my-app/src/components/Driverlicense/DLFront.css" />
         <option value="$PROJECT_DIR$/my-app/src/components/Driverlicense/DLFront.js" />
-        <option value="$PROJECT_DIR$/my-app/src/utils/functions.js" />
         <option value="$PROJECT_DIR$/my-app/src/components/Containers/MainContainer.js" />
         <option value="$PROJECT_DIR$/my-app/src/components/Barcode/Barcode.js" />
         <option value="$PROJECT_DIR$/my-app/src/components/Barcode/Barcode.css" />
-        <option value="$PROJECT_DIR$/my-app/src/components/Form/Form.js" />
         <option value="$PROJECT_DIR$/my-app/src/components/Form/form.css" />
+        <option value="$PROJECT_DIR$/my-app/src/utils/functions.js" />
+        <option value="$PROJECT_DIR$/my-app/src/components/Form/Form.js" />
       </list>
     </option>
   </component>
@@ -408,7 +411,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535591552892" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535662695318" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -493,7 +496,7 @@
       <workItem from="1534519001348" duration="19223000" />
       <workItem from="1534866639489" duration="53385000" />
       <workItem from="1535378280496" duration="14154000" />
-      <workItem from="1535425072227" duration="16188000" />
+      <workItem from="1535425072227" duration="27944000" />
     </task>
     <task id="LOCAL-00001" summary="Bootstraped the form.">
       <created>1534453970747</created>
@@ -544,11 +547,18 @@
       <option name="project" value="LOCAL" />
       <updated>1535590547181</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="style updates">
+      <created>1535591566382</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1535591566382</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="208560000" />
+    <option name="totallyTimeSpent" value="220316000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -563,7 +573,7 @@
     <frame x="1" y="23" width="1680" height="1027" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16483517" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16483517" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Learn" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -573,7 +583,7 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32941177" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4993895" visible="true" weight="0.26737967" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4993895" visible="true" weight="0.26737967" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -663,7 +673,8 @@
     <MESSAGE value="updating style, creating all the functions, randomize is working.&#10;the barcode is generated but does not fits well in the container.&#10;project functional BETA v.1 working (with some bugs)" />
     <MESSAGE value="better styling in DLFront and using the function to add &quot;/&quot; to dates" />
     <MESSAGE value="outstanding updates, the form is refreshed and rendering the values using the callback in the constructor&#10;the driver license is rendering in real time.&#10;code is cleaner." />
-    <option name="LAST_COMMIT_MESSAGE" value="outstanding updates, the form is refreshed and rendering the values using the callback in the constructor&#10;the driver license is rendering in real time.&#10;code is cleaner." />
+    <MESSAGE value="style updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="style updates" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
@@ -718,13 +729,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="44" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/src/utils/dl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="38" column="1" selection-start-line="38" selection-start-column="1" selection-end-line="38" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -783,40 +787,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/src/components/Containers/MainContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="38" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/src/utils/functions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="548">
-          <caret line="531" lean-forward="true" selection-start-line="531" selection-end-line="531" />
-          <folding>
-            <element signature="e#689#2763#0" />
-            <element signature="e#2785#3495#0" />
-            <element signature="e#3515#4207#0" />
-            <element signature="e#4233#5809#0" />
-            <element signature="e#5834#7282#0" />
-            <element signature="e#7299#8739#0" />
-            <element signature="e#8757#11276#0" />
-            <element signature="e#11293#11363#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/src/components/Driverlicense/DLFront.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/my-app/src/components/Driverlicense/DLFront.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-93">
@@ -834,7 +804,7 @@
     <entry file="file://$PROJECT_DIR$/my-app/src/components/Barcode/Barcode.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
-          <caret line="2" column="10" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
+          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -862,10 +832,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/react.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="878" column="8" selection-start-line="878" selection-start-column="8" selection-end-line="878" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-app/src/components/Containers/MainContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="18" column="13" lean-forward="true" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-app/src/utils/functions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="405" column="12" lean-forward="true" selection-start-line="405" selection-start-column="12" selection-end-line="405" selection-end-column="12" />
+          <folding>
+            <element signature="e#689#2763#0" />
+            <element signature="e#2785#3495#0" />
+            <element signature="e#3515#4207#0" />
+            <element signature="e#4233#5809#0" />
+            <element signature="e#5834#7282#0" />
+            <element signature="e#7299#8739#0" />
+            <element signature="e#8757#11276#0" />
+            <element signature="e#11293#11363#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-app/src/components/Driverlicense/DLFront.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="63" column="48" selection-start-line="63" selection-start-column="42" selection-end-line="63" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-app/src/utils/dl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="69" selection-start-line="4" selection-start-column="67" selection-end-line="4" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/my-app/src/components/Form/Form.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1035">
-          <caret line="69" column="46" lean-forward="true" selection-start-line="69" selection-start-column="46" selection-end-line="69" selection-end-column="46" />
+        <state relative-caret-position="467">
+          <caret line="95" column="61" selection-start-line="95" selection-start-column="61" selection-end-line="95" selection-end-column="61" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

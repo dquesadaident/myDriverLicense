@@ -411,10 +411,10 @@ export function generateStatic(){
         driverLicense: "TEST3837423",
         street: "SOMEWHERE ST",
         city: "SALT LAKE CITY",
-        state: "UT",
+        state: "Utah",
         zip: "81102",
         dateOfBirth: "01011950",
-        sex: "M",
+        sex: "1",
         height: "95",
         weight: "320",
         issue: "06032015",
@@ -422,13 +422,14 @@ export function generateStatic(){
         hair: "BRO",
         eyes: "BRO",
         dd: "987654321",
+        alpha2: "UT",
         srcPhoto: "https://randomuser.me/api/portraits/men/0.jpg"
 
     }
 }
 
 export function generateRandom(){
-    const sex =getRandomSex();
+    const sex = getRandomSex();
     const state = getRandomState(states);
     const myDate = generateDates();
     const dob = generateDoB(myDate);
@@ -512,7 +513,7 @@ function getRandomLastName() {
 }
 
 function getRandomSex () {
-    return getRandomNumber(1,2);
+    return getRandomNumber(1,3).toString();
 }
 
 export function getRandomHeight(inches) {

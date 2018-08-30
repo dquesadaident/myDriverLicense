@@ -5,7 +5,8 @@ import {generateRandom, generateStatic} from "../../utils/functions";
 
 export default class Form extends React.Component {
 
-    initialState = {
+    initialState (iopt, btnText){
+        return {
         lastName: "",
         firstName: "",
         middleName: "",
@@ -24,21 +25,29 @@ export default class Form extends React.Component {
         dd: "",
         issuerIdentificationNumber: "",
         dl: "",
-        opt: "1",
-        alpha2: ""
+        sex: "",
+        opt: iopt,
+        alpha2: "",
+        srcPhoto: "https://randomuser.me/api/portraits/women/0.jpg",
+        btnText: btnText
+
+        }
     };
 
     constructor(props) {
         super(props);
-        this.state = this.initialState;
+        this.state = this.initialState("1", "Generate");
     }
 
     change = e => {
 
         this.setState({
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value,
+            btnText: "Generate"
         },
             () => {
+            if(this.state.opt === "3"){
+                this.setState({ btnText: "Clear data"});
                 this.props.onChange(
                     {
                         generateBarCode: true,
@@ -46,6 +55,9 @@ export default class Form extends React.Component {
                         dl: utahDriverLicenseConverter(this.state)
                     }
                 )
+
+            }
+
             });
     };
 
@@ -67,24 +79,26 @@ export default class Form extends React.Component {
                 break;
 
             case "2":
+                this.setState(this.initialState("2", "Generate"));
+                console.log("DL in opt 2>>", this.state.dl);
                 incomingDL = generateStatic();
-                this.setState(incomingDL);
-                console.log("the DL?", incomingDL);
+                console.log("the incomingDL?", incomingDL);
+                console.log("after setState  2>>", this.state);
+
                 this.props.onChange({
                     generateBarCode: true,
                     ...incomingDL,
-                    dl: utahDriverLicenseConverter(this.state)
+                    dl: utahDriverLicenseConverter(incomingDL)
                 });
-                console.log("DL in opt 2>>", this.state.dl);
                 break;
 
             case "3":
-                this.setState(this.initialState);
-
+                this.setState(this.initialState("3", "Clear data"));
                     this.props.onChange({
                         generateBarCode: false,
                         dl: {}
                     });
+
                 console.log("DL in opt3>>", this.state.dl);
                 break;
 
@@ -96,7 +110,7 @@ export default class Form extends React.Component {
 
         const {
             issuerIdentificationNumber, lastName, firstName, middleName, driverLicense, street, city, state, zip, dateOfBirth,
-            sex, height, weight, issue, expiration, hair, eyes, dd
+            sex, height, weight, issue, expiration, hair, eyes, dd, btnText
         } = this.state;
         return (
             <div className="initialWrapper">
@@ -105,11 +119,11 @@ export default class Form extends React.Component {
                         <select  onChange={e => this.change(e)} name="opt" className="optSelect">
                             <option value={"1"}>Random person</option>
                             <option value={"2"}>Ragnar Lothbrok</option>
-                            <option value={"3"}>Manual input</option>
+                            <option value={"3"}>Clear for manual input</option>
                         </select>
                     </div>
                     <div className="col">
-                        <button className="btn btn-light" onClick={this.onSubmit}>Generate</button>
+                        <button className="btn btn-light" onClick={this.onSubmit}>{btnText}</button>
                     </div>
                 </div>
                 <form>
@@ -193,7 +207,7 @@ export default class Form extends React.Component {
                                    name="issue"
                                    placeholder="(MMDDYYYY)"
                                    value={issue}
-                                   onChange={this.change}
+                                   onChange={e => this.change(e)}
                             />
                         </div>
 
