@@ -108,6 +108,9 @@ export default class Form extends React.Component {
                             <option value={"3"}>Manual input</option>
                         </select>
                     </div>
+                    <div className="col">
+                        <button className="btn btn-light" onClick={this.onSubmit}>Generate</button>
+                    </div>
                 </div>
                 <form>
                     <div className="row">
@@ -295,11 +298,6 @@ export default class Form extends React.Component {
                                    value={eyes}
                                    onChange={e => this.change(e)}
                             />
-                        </div>
-                    </div>
-                    <div className="row btnRow">
-                        <div className="col">
-                            <button className="btn btn-light" onClick={this.onSubmit}>Generate</button>
                         </div>
                     </div>
                 </form>

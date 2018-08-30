@@ -1,14 +1,12 @@
-.barCodeContainer {
+
+.barCodeContainer{
+    align-items: center;
     justify-content: center;
-    vertical-align: middle;
-    display: inline-block;
-    overflow: hidden;
-    position: absolute;
+    display: flex;
+    width: 100%;
 }
-.barCodeContainer img {
-    justify-content: center;
-    vertical-align: middle;
-    display: inline-block;
-    overflow: hidden;
-    position: absolute;
+
+.barcode {
+    height: 200px;
+    width: 500px;
 }

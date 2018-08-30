@@ -1,5 +1,6 @@
 import React from "react";
 import generateBarcode from "pdf417";
+import "./Barcode.css"
 
 export default function Barcode(data) {
     return (
